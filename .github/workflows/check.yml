@@ -1,0 +1,37 @@
+name: Excellence Check
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  static-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Required files exist
+        run: |
+          test -f index.html
+          test -f studio.html
+          test -f scan.html
+          test -f standards.html
+          test -f css/tokens.css
+          test -f css/base.css
+          test -f skill/web-excellence/SKILL.md
+          test -f skill/web-excellence/references/checklist.md
+          test -f HANDOVER.md
+          test -f ROADMAP.md
+          test -f AGENTS.md
+          echo "All required excellence files present."
+
+      - name: Basic HTML structure sanity
+        run: |
+          for f in index.html studio.html scan.html standards.html; do
+            grep -q 'lang=' "$f" || (echo "Missing lang in $f" && exit 1)
+            grep -q '<main' "$f" || (echo "Missing main in $f" && exit 1)
+            grep -q 'viewport' "$f" || (echo "Missing viewport in $f" && exit 1)
+            echo "$f OK"
+          done

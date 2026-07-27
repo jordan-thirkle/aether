@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scan — Aether</title>
+  <meta name="description" content="Critical excellence scanner. Paste any page HTML for an honest audit against the Aether Master Checklist — evidence, user cost, and the smallest durable fix.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="css/base.css">
+  <style>
+    .wrap { max-width: 40rem; margin-inline: auto; padding: var(--space-10) var(--gutter); }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding-block: var(--space-4); }
+    .logo { font-family: var(--font-serif); font-weight: 600; font-size: var(--text-lg); color: var(--color-text); text-decoration: none; }
+    .logo span { color: var(--color-accent-text); }
+    textarea {
+      width: 100%; min-height: 12rem; padding: 0.75rem; font-family: var(--font-mono); font-size: var(--text-sm);
+      border: 1px solid var(--color-border-strong); border-radius: var(--radius-md); background: var(--color-bg); color: var(--color-text);
+    }
+    .finding { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-4); margin-bottom: var(--space-3); }
+    .finding.critical { border-inline-start: 3px solid var(--color-danger); }
+    .finding.pass { border-inline-start: 3px solid var(--color-success); }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header><div class="container"><nav class="nav" aria-label="Primary">
+    <a href="index.html" class="logo">Aether<span>.</span></a>
+    <a href="index.html" class="btn btn-ghost">← Home</a>
+  </nav></div></header>
+  <main id="main" class="wrap">
+    <h1 class="heading heading-sm" style="margin-bottom: var(--space-3);">Aether Scan</h1>
+    <p class="text-muted" style="margin-bottom: var(--space-6);">Paste page HTML for a critical checklist audit. Nothing is uploaded.</p>
+    <form id="scan-form">
+      <textarea id="html-input" placeholder="Paste full page HTML source…" spellcheck="false"></textarea>
+      <div class="cluster" style="margin-top: var(--space-4);">
+        <button type="submit" class="btn btn-primary">Run critical audit</button>
+        <button type="button" class="btn btn-secondary" id="self-scan">Scan this page</button>
+      </div>
+    </form>
+    <div id="report" style="margin-top: var(--space-8); display: none;" aria-live="polite"></div>
+  </main>
+  <script>
+    function analyze(doc) {
+      const findings = [];
+      const lang = doc.documentElement.getAttribute('lang');
+      if (!lang) findings.push({s:'critical', t:'Missing lang attribute', f:'Add lang="en" (or correct language) to <html>'});
+      else findings.push({s:'pass', t:'lang present', f:''});
+      const h1s = doc.querySelectorAll('h1');
+      if (h1s.length === 0) findings.push({s:'critical', t:'No h1', f:'Add one clear h1'});
+      else if (h1s.length > 1) findings.push({s:'critical', t:'Multiple h1s', f:'Use a single h1'});
+      else findings.push({s:'pass', t:'Single h1', f:''});
+      if (!doc.querySelector('main, [role="main"]')) findings.push({s:'critical', t:'No main landmark', f:'Wrap primary content in <main>'});
+      else findings.push({s:'pass', t:'main landmark', f:''});
+      if (!doc.querySelector('meta[name="viewport"]')) findings.push({s:'critical', t:'No viewport meta', f:'Add viewport meta'});
+      else findings.push({s:'pass', t:'viewport present', f:''});
+      const title = doc.querySelector('title');
+      if (!title || !title.textContent.trim()) findings.push({s:'critical', t:'Missing title', f:'Add unique descriptive title'});
+      else findings.push({s:'pass', t:'title present', f:''});
+      return findings;
+    }
+    function render(findings) {
+      const report = document.getElementById('report');
+      report.style.display = 'block';
+      report.innerHTML = '<h2 class="heading" style="font-size: var(--text-lg); margin-bottom: var(--space-4);">Findings</h2>' +
+        findings.map(f => '<div class="finding ' + f.s + '"><strong>' + f.t + '</strong>' + (f.f ? '<p class="text-muted" style="margin:0.25rem 0 0; font-size: var(--text-sm);">' + f.f + '</p>' : '') + '</div>').join('');
+    }
+    document.getElementById('scan-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const html = document.getElementById('html-input').value;
+      if (!html.trim()) return;
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      render(analyze(doc));
+    });
+    document.getElementById('self-scan').addEventListener('click', function () {
+      render(analyze(document));
+    });
+  </script>
+</body>
+</html>

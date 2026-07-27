@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Standards — Aether</title>
+  <meta name="description" content="The living standards Aether and the web-excellence skill enforce: anti-slop rules, WCAG 2.2 AA, Core Web Vitals, Nielsen heuristics, and modern CSS.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="css/base.css">
+  <style>
+    .wrap { max-width: 42rem; margin-inline: auto; padding: var(--space-10) var(--gutter); }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding-block: var(--space-4); }
+    .logo { font-family: var(--font-serif); font-weight: 600; font-size: var(--text-lg); color: var(--color-text); text-decoration: none; }
+    .logo span { color: var(--color-accent-text); }
+    h2 { font-family: var(--font-serif); font-size: var(--text-xl); margin: var(--space-8) 0 var(--space-3); }
+    ul { padding-inline-start: 1.25rem; color: var(--color-text-muted); }
+    li + li { margin-top: var(--space-2); }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header><div class="container"><nav class="nav" aria-label="Primary">
+    <a href="index.html" class="logo">Aether<span>.</span></a>
+    <a href="index.html" class="btn btn-ghost">← Home</a>
+  </nav></div></header>
+  <main id="main" class="wrap">
+    <h1 class="heading heading-sm" style="margin-bottom: var(--space-4);">Standards Library</h1>
+    <p class="text-muted">The rules Aether and the web-excellence skill enforce.</p>
+    <h2>Anti-slop</h2>
+    <ul>
+      <li>One locked aesthetic direction (not “clean and modern”)</li>
+      <li>No purple/indigo default gradients, glassmorphism+neon, identical three-card grids</li>
+      <li>Strong hierarchy · real content · all four states designed</li>
+    </ul>
+    <h2>Accessibility (WCAG 2.2 AA)</h2>
+    <ul>
+      <li>Semantic HTML, one h1, landmarks, skip link</li>
+      <li>Visible focus never fully obscured · target size ≥ 24×24 CSS px</li>
+      <li>Contrast 4.5:1 text / 3:1 UI · labels on forms · reduced-motion</li>
+    </ul>
+    <h2>Performance</h2>
+    <ul>
+      <li>LCP ≤ 2.5s · INP ≤ 200ms · CLS &lt; 0.1</li>
+      <li>Modern image formats · controlled fonts · minimal main-thread work</li>
+    </ul>
+    <h2>UX & Layout</h2>
+    <ul>
+      <li>Nielsen heuristics · loading/empty/error/success states</li>
+      <li>Mobile-first · Grid + Flex + container queries · fluid clamp()</li>
+    </ul>
+    <p style="margin-top: var(--space-10);"><a href="studio.html" class="btn btn-primary">Open Studio</a></p>
+  </main>
+</body>
+</html>
