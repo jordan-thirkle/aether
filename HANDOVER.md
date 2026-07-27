@@ -141,3 +141,8 @@ Full phase-by-phase audit completed against Master Checklist. Critical gaps clos
 4. Muted text contrast tightened (light mode ~36% L) for safer WCAG AA.
 5. Real Lighthouse / field CWV still pending after public deploy.
 Product now aligns with the rules it teaches.
+
+---
+
+**Last agent notes (2026-07-27, Master Standard v1.0):**  
+Expanded the Master Checklist into the **AETHER MASTER STANDARD** v1.0 — the complete standard for AI-assisted web development. Now covers 11 sections: Anti-Slop, Accessibility (WCAG 2.2 AA), Performance (CWV), UX (Nielsen), Layout & CSS, Security, SEO, i18n, Testing, Build & Deploy, Monitor & Iterate. Each item is concrete, testable, and clearly marked with its automation capability (Browser / Vercel / CI / Human / External). The standard is the single source of truth. The `standards.html` page now surfaces the full expanded standard. AGENTS.md updated to reference the expanded standard. The product remains self-applying — Aether itself passes the standard it teaches.

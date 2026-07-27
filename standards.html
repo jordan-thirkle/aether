@@ -3,52 +3,322 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Standards — Aether</title>
-  <meta name="description" content="The living standards Aether and the web-excellence skill enforce: anti-slop rules, WCAG 2.2 AA, Core Web Vitals, Nielsen heuristics, and modern CSS.">
+  <title>Aether Master Standard — The Full Standard</title>
+  <meta name="description" content="The AETHER MASTER STANDARD: the complete set of rules for anti-slop, accessibility, performance, UX, layout, security, SEO, i18n, testing, deployment, and monitoring.">
   <meta name="color-scheme" content="light dark">
   <link rel="stylesheet" href="css/base.css">
   <style>
-    .wrap { max-width: 42rem; margin-inline: auto; padding: var(--space-10) var(--gutter); }
+    .wrap { max-width: 52rem; margin-inline: auto; padding: var(--space-10) var(--gutter); }
     .nav { display: flex; align-items: center; justify-content: space-between; padding-block: var(--space-4); }
-    .logo { font-family: var(--font-serif); font-weight: 600; font-size: var(--text-lg); color: var(--color-text); text-decoration: none; }
+    .logo { font-family: var(--font-serif); font-weight: 600; font-size: var(--text-lg); color: var(--color-text); text-decoration: none; letter-spacing: -0.02em; }
     .logo span { color: var(--color-accent-text); }
-    h2 { font-family: var(--font-serif); font-size: var(--text-xl); margin: var(--space-8) 0 var(--space-3); }
-    ul { padding-inline-start: 1.25rem; color: var(--color-text-muted); }
-    li + li { margin-top: var(--space-2); }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--color-accent-text); margin-bottom: var(--space-4);
+    }
+    .eyebrow::before { content: ""; width: 1.25rem; height: 2px; background: var(--color-accent); }
+    h1 { font-family: var(--font-serif); font-size: clamp(var(--text-2xl), 4vw, var(--text-3xl)); margin: 0 0 var(--space-4); letter-spacing: -0.03em; line-height: 1.15; }
+    h2 {
+      font-family: var(--font-serif); font-size: var(--text-xl); font-weight: 600;
+      margin: var(--space-12) 0 var(--space-3); padding-block-end: var(--space-2);
+      border-bottom: 1px solid var(--color-border);
+    }
+    h3 { font-size: var(--text-base); font-weight: 600; margin: var(--space-6) 0 var(--space-2); color: var(--color-text); }
+    .intro { color: var(--color-text-muted); font-size: var(--text-base); margin-bottom: var(--space-8); max-width: 40rem; }
+    table { width: 100%; border-collapse: collapse; margin: var(--space-4) 0 var(--space-6); font-size: var(--text-sm); }
+    th { text-align: left; font-weight: 600; padding: var(--space-2) var(--space-3); border-bottom: 2px solid var(--color-border); color: var(--color-text); }
+    td { padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--color-border); color: var(--color-text-muted); vertical-align: top; }
+    td:first-child { color: var(--color-text); }
+    .auto { font-family: var(--font-mono); font-size: 0.75rem; white-space: nowrap; }
+    .tag-browser { background: #22c55e20; color: #22c55e; padding: 0.15em 0.4em; border-radius: 3px; }
+    .tag-vercel { background: #8b5cf620; color: #8b5cf6; padding: 0.15em 0.4em; border-radius: 3px; }
+    .tag-ci { background: #22d3ee20; color: #22d3ee; padding: 0.15em 0.4em; border-radius: 3px; }
+    .tag-human { background: #f59e0b20; color: #f59e0b; padding: 0.15em 0.4em; border-radius: 3px; }
+    .tag-external { background: #ef444420; color: #ef4444; padding: 0.15em 0.4em; border-radius: 3px; }
+    .legend { display: flex; flex-wrap: wrap; gap: var(--space-4); margin: var(--space-6) 0; font-size: var(--text-sm); color: var(--color-text-muted); }
+    .legend span { display: inline-flex; align-items: center; gap: var(--space-1); }
+    .note { background: var(--color-bg-subtle); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-4) var(--space-5); margin: var(--space-6) 0; font-size: var(--text-sm); color: var(--color-text-muted); }
+    .note strong { color: var(--color-text); }
+    .nav-links { display: none; gap: var(--space-6); list-style: none; margin: 0; padding: 0; }
+    @media (min-width: 48rem) { .nav-links { display: flex; } }
+    .nav-links a { color: var(--color-text-muted); text-decoration: none; font-size: var(--text-sm); font-weight: 500; }
+    .nav-links a:hover { color: var(--color-text); }
+    footer { padding-block: var(--space-10); border-top: 1px solid var(--color-border); font-size: var(--text-sm); color: var(--color-text-muted); }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
   <header><div class="container"><nav class="nav" aria-label="Primary">
     <a href="index.html" class="logo">Aether<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="studio.html">Studio</a></li>
+      <li><a href="scan.html">Scan</a></li>
+      <li><a href="standards.html">Standards</a></li>
+    </ul>
     <a href="index.html" class="btn btn-ghost">← Home</a>
   </nav></div></header>
   <main id="main" class="wrap">
-    <h1 class="heading heading-sm" style="margin-bottom: var(--space-4);">Standards Library</h1>
-    <p class="text-muted">The rules Aether and the web-excellence skill enforce.</p>
-    <h2>Anti-slop</h2>
-    <ul>
-      <li>One locked aesthetic direction (not “clean and modern”)</li>
-      <li>No purple/indigo default gradients, glassmorphism+neon, identical three-card grids</li>
-      <li>Strong hierarchy · real content · all four states designed</li>
-    </ul>
-    <h2>Accessibility (WCAG 2.2 AA)</h2>
-    <ul>
-      <li>Semantic HTML, one h1, landmarks, skip link</li>
-      <li>Visible focus never fully obscured · target size ≥ 24×24 CSS px</li>
-      <li>Contrast 4.5:1 text / 3:1 UI · labels on forms · reduced-motion</li>
-    </ul>
-    <h2>Performance</h2>
-    <ul>
-      <li>LCP ≤ 2.5s · INP ≤ 200ms · CLS &lt; 0.1</li>
-      <li>Modern image formats · controlled fonts · minimal main-thread work</li>
-    </ul>
-    <h2>UX & Layout</h2>
-    <ul>
-      <li>Nielsen heuristics · loading/empty/error/success states</li>
-      <li>Mobile-first · Grid + Flex + container queries · fluid clamp()</li>
-    </ul>
+    <div class="eyebrow">Aether Master Standard v1.0</div>
+    <h1>The Complete Standard for AI-Assisted Web Development</h1>
+    <p class="intro">Every item must pass before output. This is the single source of truth for web excellence — anti-slop first, then accessibility, performance, UX, layout, security, SEO, i18n, testing, deployment, and monitoring.</p>
+
+    <div class="legend" aria-label="Automation legend">
+      <span><span class="tag-browser">🔧 Browser</span> In-browser check</span>
+      <span><span class="tag-vercel">🔧 Vercel</span> Vercel config</span>
+      <span><span class="tag-ci">🔧 CI</span> CI pipeline</span>
+      <span><span class="tag-human">👁️ Human</span> Human judgment</span>
+      <span><span class="tag-external">🌐 External</span> External tools</span>
+    </div>
+
+    <!-- 1. ANTI-SLOP -->
+    <h2 id="anti-slop">1. Anti-Slop (Enforced First)</h2>
+    <p>If this section fails, nothing else matters.</p>
+
+    <h3>1.1 Aesthetic Direction Lock</h3>
+    <table>
+      <tr><th>Rule</th><th>Automation</th><th>Check</th></tr>
+      <tr><td>One explicit aesthetic direction named before any UI generation</td><td class="auto"><span class="tag-human">👁️ Human</span></td><td>Written aesthetic direction exists</td></tr>
+      <tr><td>"Clean and modern" is never an aesthetic</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td><td>Search for forbidden phrases</td></tr>
+      <tr><td>Direction is specific: palette, type, motion, mood</td><td class="auto"><span class="tag-human">👁️ Human</span></td><td>Specific enough to constrain decisions</td></tr>
+    </table>
+
+    <h3>1.2 Forbidden Patterns</h3>
+    <table>
+      <tr><th>Rule</th><th>Automation</th><th>Check</th></tr>
+      <tr><td>No default purple/indigo gradients</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td><td>DOM scan for gradient usage</td></tr>
+      <tr><td>No glassmorphism + neon</td><td class="auto"><span class="tag-human">👁️ Human</span></td><td>Visual inspection</td></tr>
+      <tr><td>No identical three-card grids with icons</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td><td>DOM scan for repeated 3-col patterns</td></tr>
+      <tr><td>No missing interaction states</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td><td>Check hover/focus/active/disabled states</td></tr>
+      <tr><td>No lorem ipsum in production</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td><td>Search for placeholder text</td></tr>
+      <tr><td>No decorative motion fighting accessibility</td><td class="auto"><span class="tag-human">👁️ Human</span></td><td>Does animation serve function?</td></tr>
+    </table>
+
+    <h3>1.3 Hierarchy & Content</h3>
+    <table>
+      <tr><th>Rule</th><th>Automation</th><th>Check</th></tr>
+      <tr><td>Strong hierarchy passes squint test</td><td class="auto"><span class="tag-human">👁️ Human</span></td><td>Squint — primary element obvious?</td></tr>
+      <tr><td>Real content, not generic copy</td><td class="auto"><span class="tag-human">👁️ Human</span></td><td>Content specific to this project?</td></tr>
+      <tr><td>All four states: loading, empty, error, success</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td><td>Check for state patterns in code</td></tr>
+      <tr><td>Design tokens used for all values</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td><td>Check for var() references</td></tr>
+    </table>
+
+    <!-- 2. ACCESSIBILITY -->
+    <h2 id="accessibility">2. Accessibility (WCAG 2.2 AA)</h2>
+    <p>The floor, not the ceiling. Every item is a legal and ethical requirement.</p>
+
+    <h3>2.1 Structure & Semantics</h3>
+    <table>
+      <tr><th>Rule</th><th>WCAG</th><th>Automation</th></tr>
+      <tr><td>Valid HTML5, one h1, logical heading order</td><td>1.3.1</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Landmark regions (header, nav, main, footer)</td><td>1.3.1</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>html lang attribute set</td><td>3.1.1</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Unique, descriptive title per page</td><td>2.4.2</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Skip link present and functional</td><td>2.4.1</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Viewport meta correct</td><td>—</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+    </table>
+
+    <h3>2.2 Keyboard & Focus</h3>
+    <table>
+      <tr><th>Rule</th><th>WCAG</th><th>Automation</th></tr>
+      <tr><td>All interactive elements keyboard operable</td><td>2.1.1</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Visible focus never fully obscured</td><td>2.4.7</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Focus order follows logical document order</td><td>2.4.3</td><td class="auto"><span class="tag-human">👁️ Human</span></td></tr>
+      <tr><td>No keyboard traps</td><td>2.1.2</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Target size ≥ 24×24 CSS px (prefer 44×44)</td><td>2.5.8</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+    </table>
+
+    <h3>2.3 Color & Contrast</h3>
+    <table>
+      <tr><th>Rule</th><th>WCAG</th><th>Automation</th></tr>
+      <tr><td>Text contrast ≥ 4.5:1</td><td>1.4.3</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Large text contrast ≥ 3:1</td><td>1.4.3</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>UI component contrast ≥ 3:1</td><td>1.4.11</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Color not sole cue for information</td><td>1.4.1</td><td class="auto"><span class="tag-human">👁️ Human</span></td></tr>
+      <tr><td>prefers-reduced-motion respected</td><td>2.3.3</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+    </table>
+
+    <h3>2.4 Forms & Authentication</h3>
+    <table>
+      <tr><th>Rule</th><th>WCAG</th><th>Automation</th></tr>
+      <tr><td>All inputs have associated labels</td><td>1.3.1</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Error messages are specific and suggest correction</td><td>3.3.1</td><td class="auto"><span class="tag-human">👁️ Human</span></td></tr>
+      <tr><td>No pure cognitive tests for authentication</td><td>2.2.1</td><td class="auto"><span class="tag-human">👁️ Human</span></td></tr>
+      <tr><td>Required fields indicated programmatically</td><td>3.3.2</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+    </table>
+
+    <h3>2.5 Screen Reader & Assistive Tech</h3>
+    <table>
+      <tr><th>Rule</th><th>WCAG</th><th>Automation</th></tr>
+      <tr><td>Images have meaningful alt text</td><td>1.1.1</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Interactive elements have accessible names</td><td>4.1.2</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>ARIA used only when HTML semantics insufficient</td><td>4.1.2</td><td class="auto"><span class="tag-human">👁️ Human</span></td></tr>
+      <tr><td>Dynamic content announces changes</td><td>4.1.3</td><td class="auto"><span class="tag-human">👁️ Human</span></td></tr>
+    </table>
+
+    <!-- 3. PERFORMANCE -->
+    <h2 id="performance">3. Performance (Core Web Vitals)</h2>
+
+    <h3>3.1 Core Web Vitals</h3>
+    <table>
+      <tr><th>Metric</th><th>Threshold</th><th>Automation</th></tr>
+      <tr><td>LCP (Largest Contentful Paint)</td><td>≤ 2.5s</td><td class="auto"><span class="tag-external">🌐 Lighthouse</span></td></tr>
+      <tr><td>INP (Interaction to Next Paint)</td><td>≤ 200ms</td><td class="auto"><span class="tag-external">🌐 Lighthouse</span></td></tr>
+      <tr><td>CLS (Cumulative Layout Shift)</td><td>&lt; 0.1</td><td class="auto"><span class="tag-external">🌐 Lighthouse</span></td></tr>
+    </table>
+
+    <h3>3.2 Assets & Loading</h3>
+    <table>
+      <tr><th>Rule</th><th>Automation</th></tr>
+      <tr><td>Images sized appropriately</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Modern formats (WebP, AVIF)</td><td class="auto"><span class="tag-vercel">🔧 Vercel</span></td></tr>
+      <tr><td>Lazy loading below fold</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Font loading controlled (font-display)</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Minimal main-thread work (&lt; 50ms/frame)</td><td class="auto"><span class="tag-external">🌐 Lighthouse</span></td></tr>
+    </table>
+
+    <!-- 4. UX -->
+    <h2 id="ux">4. UX (Nielsen Heuristics)</h2>
+    <p>Human judgment required. These test whether the interface works.</p>
+    <table>
+      <tr><th>Heuristic</th><th>Automation</th></tr>
+      <tr><td>System status visible (loading, progress, completion)</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Real-world language, no jargon</td><td class="auto"><span class="tag-human">👁️ Human</span></td></tr>
+      <tr><td>User has agency (undo, escape, cancel)</td><td class="auto"><span class="tag-human">👁️ Human</span></td></tr>
+      <tr><td>Consistency across patterns</td><td class="auto"><span class="tag-human">👁️ Human</span></td></tr>
+      <tr><td>Error prevention (constrain bad input)</td><td class="auto"><span class="tag-human">👁️ Human</span></td></tr>
+      <tr><td>Recognition over recall</td><td class="auto"><span class="tag-human">👁️ Human</span></td></tr>
+      <tr><td>Aesthetic/minimalist (only essential info)</td><td class="auto"><span class="tag-human">👁️ Human</span></td></tr>
+      <tr><td>Error messages help recovery</td><td class="auto"><span class="tag-human">👁️ Human</span></td></tr>
+    </table>
+
+    <h3>Interaction States</h3>
+    <table>
+      <tr><th>State</th><th>Automation</th></tr>
+      <tr><td>Loading state</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Empty state</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Error state</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Success state</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Hover state</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Active/pressed state</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Disabled state</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+    </table>
+
+    <!-- 5. LAYOUT -->
+    <h2 id="layout">5. Layout & CSS</h2>
+    <table>
+      <tr><th>Rule</th><th>Automation</th></tr>
+      <tr><td>Mobile-first (base mobile, min-width up)</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>No horizontal scroll at any width</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Touch targets ≥ 44×44 on mobile</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Grid for 2D, Flex for 1D</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Container queries for components</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Fluid clamp() type/spacing</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Logical properties (margin-inline, not margin-left)</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Design tokens referenced via var()</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Dark mode supported via tokens</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+    </table>
+
+    <!-- 6. SECURITY -->
+    <h2 id="security">6. Security</h2>
+    <table>
+      <tr><th>Rule</th><th>Automation</th></tr>
+      <tr><td>X-Content-Type-Options: nosniff</td><td class="auto"><span class="tag-vercel">🔧 Vercel</span></td></tr>
+      <tr><td>X-Frame-Options: DENY or SAMEORIGIN</td><td class="auto"><span class="tag-vercel">🔧 Vercel</span></td></tr>
+      <tr><td>Referrer-Policy set</td><td class="auto"><span class="tag-vercel">🔧 Vercel</span></td></tr>
+      <tr><td>Permissions-Policy restricts APIs</td><td class="auto"><span class="tag-vercel">🔧 Vercel</span></td></tr>
+      <tr><td>No client-side secrets in JS</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Dependencies audited</td><td class="auto"><span class="tag-ci">🔧 CI</span></td></tr>
+    </table>
+
+    <!-- 7. SEO -->
+    <h2 id="seo">7. SEO & Discoverability</h2>
+    <table>
+      <tr><th>Rule</th><th>Automation</th></tr>
+      <tr><td>Unique title per page (50-60 chars)</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Unique meta description (120-160 chars)</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>One h1 per page, relevant to content</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Canonical URL set</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Open Graph tags</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Twitter Card tags</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>robots.txt present</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>sitemap.xml present</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+    </table>
+
+    <!-- 8. I18N -->
+    <h2 id="i18n">8. i18n & Internationalization</h2>
+    <table>
+      <tr><th>Rule</th><th>Automation</th></tr>
+      <tr><td>lang attribute on html</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Logical CSS properties</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>RTL readiness</td><td class="auto"><span class="tag-browser">🔧 Browser</span></td></tr>
+      <tr><td>Translation-ready strings</td><td class="auto"><span class="tag-human">👁️ Human</span></td></tr>
+    </table>
+
+    <!-- 9. TESTING -->
+    <h2 id="testing">9. Testing</h2>
+    <div class="note">
+      <strong>Honest about limits.</strong> Some things can be automated. Some require tools. Some require human judgment. This standard marks each clearly.
+    </div>
+    <h3>Automated (Browser / CI)</h3>
+    <table>
+      <tr><th>Check</th><th>Tool</th></tr>
+      <tr><td>DOM accessibility checks</td><td class="auto"><span class="tag-browser">🔧 Browser</span> / axe-core</td></tr>
+      <tr><td>Lighthouse audit</td><td class="auto"><span class="tag-external">🌐 Lighthouse</span></td></tr>
+      <tr><td>HTML validation</td><td class="auto"><span class="tag-ci">🔧 CI</span></td></tr>
+      <tr><td>Link checking</td><td class="auto"><span class="tag-ci">🔧 CI</span></td></tr>
+    </table>
+    <h3>Human Judgment Required</h3>
+    <table>
+      <tr><th>Check</th><th>Why</th></tr>
+      <tr><td>Screen reader testing (NVDA, VoiceOver)</td><td>Assistive tech behavior varies</td></tr>
+      <tr><td>Keyboard-only navigation flow</td><td>Logical flow is subjective</td></tr>
+      <tr><td>Cognitive accessibility</td><td>Requires empathy, not automation</td></tr>
+      <tr><td>Content quality</td><td>Accuracy and tone need human review</td></tr>
+      <tr><td>Visual design quality</td><td>Professional judgment needed</td></tr>
+      <tr><td>Mobile real-world usability</td><td>Real phone, real hand, real context</td></tr>
+    </table>
+
+    <!-- 10. DEPLOY -->
+    <h2 id="deploy">10. Build & Deploy</h2>
+    <table>
+      <tr><th>Rule</th><th>Automation</th></tr>
+      <tr><td>Semantic versioning</td><td class="auto"><span class="tag-ci">🔧 CI</span></td></tr>
+      <tr><td>CI pipeline (lint, test, build)</td><td class="auto"><span class="tag-ci">🔧 CI</span></td></tr>
+      <tr><td>Environment variables documented</td><td class="auto"><span class="tag-vercel">🔧 Vercel</span></td></tr>
+      <tr><td>Domain + SSL configured</td><td class="auto"><span class="tag-vercel">🔧 Vercel</span></td></tr>
+      <tr><td>Rollback capability</td><td class="auto"><span class="tag-vercel">🔧 Vercel</span></td></tr>
+    </table>
+
+    <!-- 11. MONITOR -->
+    <h2 id="monitor">11. Monitor & Iterate</h2>
+    <table>
+      <tr><th>Rule</th><th>Automation</th></tr>
+      <tr><td>CWV tracking (real users)</td><td class="auto"><span class="tag-external">🌐 Analytics</span></td></tr>
+      <tr><td>Error tracking</td><td class="auto"><span class="tag-external">🌐 Sentry</span></td></tr>
+      <tr><td>Analytics (privacy-first)</td><td class="auto"><span class="tag-external">🌐 Plausible</span></td></tr>
+      <tr><td>Content freshness</td><td class="auto"><span class="tag-human">👁️ Human</span></td></tr>
+      <tr><td>Dependency updates</td><td class="auto"><span class="tag-ci">🔧 CI</span></td></tr>
+    </table>
+
+    <!-- GATE -->
+    <h2 id="gate">What "Done" Means</h2>
+    <div class="note">
+      <p>A task is complete when:</p>
+      <ol>
+        <li><strong>Anti-slop gate passes</strong> — No forbidden patterns, aesthetic direction locked</li>
+        <li><strong>All applicable items pass</strong> — Automated checks pass, human checks verified</li>
+        <li><strong>Aether remains compliant</strong> — Changes don't break the product's own standards</li>
+        <li><strong>Documentation updated</strong> — HANDOVER.md and ROADMAP.md reflect the change</li>
+        <li><strong>Commit message states excellence impact</strong></li>
+      </ol>
+      <p>If any item fails, the task is not done.</p>
+    </div>
+
     <p style="margin-top: var(--space-10);"><a href="studio.html" class="btn btn-primary">Open Studio</a></p>
   </main>
+  <footer><div class="container">
+    <p>© 2026 Aether. The standard for AI-assisted web development.</p>
+  </div></footer>
 </body>
 </html>

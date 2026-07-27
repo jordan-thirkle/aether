@@ -13,6 +13,8 @@ Priority is quality and constraint, not feature count.
 - [x] web-excellence skill + Master Checklist
 - [x] Local git baseline
 - [x] Complete handover package
+- [x] AETHER MASTER STANDARD v1.0 (expanded 11-section standard with automation legend)
+- [x] Standards page surfaces full expanded standard
 
 ## Phase 1 — Make it real & public (next)
 
